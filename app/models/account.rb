@@ -1,4 +1,6 @@
 class Account < ApplicationRecord
+  DATE_FORMAT = /^\d{4}[\.](0?[1-9]|1[012])[\.](0?[1-9]|[12][0-9]|3[01])$/
+  
   validates :number, presence: true
   validates :digit, presence: true
   validates :bank_branch, presence: true
@@ -16,11 +18,8 @@ class Account < ApplicationRecord
   end
 
   def Account.bank_transactions(account_id, start_date, end_date)
-  	date_format = /^\d{4}[\.](0?[1-9]|1[012])[\.](0?[1-9]|[12][0-9]|3[01])$/
 
-  	puts date_format.match(end_date).to_s
-
-  	if date_format.match(start_date) and date_format.match(end_date)
+  	if Account.is_valid(start_date) and Account.is_valid(end_date)
 	  	begin
 	  	  	account = Account.find(account_id)
 
@@ -32,4 +31,9 @@ class Account < ApplicationRecord
 		[]
 	end
   end
+
+  private
+	  def Account.is_valid(date_string)
+	  	DATE_FORMAT.match(date_string)
+	  end
 end
