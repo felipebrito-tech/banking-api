@@ -34,4 +34,14 @@ class ActiveSupport::TestCase
   				bank_branch: 1102,
   				bank: bank)
   end
+
+  def create_fake_bank_transaction
+  	account = Account.first
+  	
+  	BankTransaction.new(
+  				operation: BankTransaction::TED,
+  				amount: 30,
+  				summary: "Compra de USD 1,00",
+  				account: account)
+  end
 end
