@@ -8,13 +8,23 @@ class AccountTest < ActiveSupport::TestCase
     assert_not account.valid?
   end
 
-  test "get account balance with invalid data returns nil" do
+  test "account data is valid" do
+    assert create_fake_account.valid?
+  end
+
+  test "get account with invalid data returns nil" do
     account = Account.get(1, 1, 1)
 
     assert_nil account
   end
 
-  test "get account balance with valid id" do
+  test "get account works fine" do
+    account = load_may_account()
+
+    assert_not_nil account
+  end
+
+  test "get account balance works fine" do
     account = load_may_account()
 
     assert_equal account.balance, 50
@@ -67,9 +77,5 @@ class AccountTest < ActiveSupport::TestCase
     account.deposit(300)
 
     assert_equal load_may_account().balance, 350
-  end
-
-  test "account data is valid" do
-    assert create_fake_account.valid?
   end
 end
