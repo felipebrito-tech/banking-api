@@ -9,6 +9,12 @@ class Account < ApplicationRecord
   belongs_to :bank
   has_many :bank_transactions
 
+  def deposit(amount)
+  	self.balance += amount
+
+  	self.save
+  end
+
   def Account.get_balance(account_id)
   	begin
   		Account.find(account_id).balance
