@@ -78,4 +78,22 @@ class AccountTest < ActiveSupport::TestCase
 
     assert_equal load_may_account().balance, 350
   end
+
+  test "making a withdrawal with invalid values returns nil" do
+    account = load_may_account()
+
+    assert_nil account.withdrawal(100)
+    assert_nil account.withdrawal(-100)
+    assert_nil account.withdrawal(nil)
+    assert_nil account.withdrawal("whatever")
+    assert_nil account.withdrawal([])
+  end
+
+  test "making a withdrawal works fine" do
+    account = load_may_account()
+
+    account.withdrawal(10)
+
+    assert_equal load_may_account().balance, 40
+  end
 end

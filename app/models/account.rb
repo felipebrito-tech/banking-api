@@ -9,8 +9,16 @@ class Account < ApplicationRecord
   belongs_to :bank
   has_many :bank_transactions
 
+  def list_bank_transactions(start_date, end_date)
+  	if Account.is_valid(start_date) and Account.is_valid(end_date)
+  	  	bank_transactions.where("date >= ? and date <= ?", start_date, end_date)
+	else
+		[]
+	end
+  end
+
   def deposit(amount)
-  	if amount.is_a? Numeric and amount >= 0
+  	if amount.is_a? Numeric and amount > 0
 	  	self.balance += amount
 
 	  	save
@@ -19,11 +27,13 @@ class Account < ApplicationRecord
 	end
   end
 
-  def list_bank_transactions(start_date, end_date)
-  	if Account.is_valid(start_date) and Account.is_valid(end_date)
-  	  	bank_transactions.where("date >= ? and date <= ?", start_date, end_date)
+  def withdrawal(amount)
+  	if amount.is_a? Numeric and amount > 0 and amount <= self.balance
+	  	self.balance -= amount
+
+	  	save
 	else
-		[]
+		nil
 	end
   end
 
