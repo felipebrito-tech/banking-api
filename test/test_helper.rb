@@ -6,7 +6,7 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  def create_fake_account
+  def new_fake_account
   	bank = Bank.first
   	
   	Account.new(
@@ -23,7 +23,7 @@ class ActiveSupport::TestCase
     Account.get(may_account.bank_branch, may_account.number, may_account.digit)
   end
 
-  def create_fake_beneficiary
+  def new_fake_beneficiary
   	bank = Bank.first
   	
   	Beneficiary.new(
@@ -35,7 +35,7 @@ class ActiveSupport::TestCase
   				bank: bank)
   end
 
-  def create_fake_bank_transaction
+  def new_fake_bank_transaction
   	account = Account.first
   	
   	BankTransaction.new(

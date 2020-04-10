@@ -9,6 +9,6 @@ class BankTransactionTest < ActiveSupport::TestCase
   end
 
   test "bank transaction data is valid" do
-    assert create_fake_bank_transaction.valid?
+    assert new_fake_bank_transaction.valid?
   end
 end

@@ -9,7 +9,7 @@ class AccountTest < ActiveSupport::TestCase
   end
 
   test "account data is valid" do
-    assert create_fake_account.valid?
+    assert new_fake_account.valid?
   end
 
   test "get account with invalid data returns nil" do

@@ -9,10 +9,10 @@ class BeneficiaryTest < ActiveSupport::TestCase
   end
 
   test "beneficiary data is valid" do
-    assert create_fake_beneficiary.valid?
+    assert new_fake_beneficiary.valid?
   end
 
   test "saving beneficiary works fine" do
-  	assert create_fake_beneficiary.save
+  	assert new_fake_beneficiary.save
   end
 end
