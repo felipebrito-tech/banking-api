@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+StarkToPots:
+  operation: TED
+  date: 2020-02-07 15:43:21
+  summary: Compras do mês
+  amount: 10000
+  account: Stark
+
+PeterToMay:
+  operation: DEPOSIT
+  date: 2020-03-07 15:43:21
+  summary: Ração do gato
+  amount: 15
+  account: May
+
+PotsToStark:
+  operation: DEPOSIT
+  date: 2020-04-07 15:43:21
+  summary: Troco das compras
+  amount: 8.5
+  account: Stark
+
+MayToPeter:
+  operation: TED
+  date: 2020-04-07 15:43:21
+  summary: Ovos e leite
+  amount: 55
+  account: May

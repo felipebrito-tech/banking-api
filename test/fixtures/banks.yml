@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Trampolin:
+  bank_name: Trampolin
+  number: 999
+
+NeagleBank:
+  bank_name: NeagleBank
+  number: 777
