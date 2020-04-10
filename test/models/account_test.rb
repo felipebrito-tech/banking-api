@@ -52,6 +52,15 @@ class AccountTest < ActiveSupport::TestCase
     assert_equal bank_transactions.size, 1
   end
 
+  test "call deposit with invalid values returns nil" do
+    account = load_may_account()
+
+    assert_nil account.deposit(-300)
+    assert_nil account.deposit(nil)
+    assert_nil account.deposit("whatever")
+    assert_nil account.deposit([])
+  end
+
   test "making a deposit works fine" do
     account = load_may_account()
 

@@ -10,9 +10,13 @@ class Account < ApplicationRecord
   has_many :bank_transactions
 
   def deposit(amount)
-  	self.balance += amount
+  	if amount.is_a? Numeric and amount >= 0
+	  	self.balance += amount
 
-  	save
+	  	save
+	else
+		nil
+	end
   end
 
   def list_bank_transactions(start_date, end_date)
