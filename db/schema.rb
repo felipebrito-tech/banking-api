@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2020_04_07_184402) do
 
   create_table "bank_transactions", force: :cascade do |t|
     t.string "operation"
-    t.datetime "date"
     t.string "summary"
     t.decimal "amount"
     t.bigint "account_id"

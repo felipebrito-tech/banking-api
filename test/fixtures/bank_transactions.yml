@@ -2,28 +2,28 @@
 
 StarkToPots:
   operation: TED
-  date: 2020-02-07 15:43:21
   summary: Compras do mês
   amount: 10000
   account: Stark
+  created_at: 2020-02-07 15:43:21
 
 PeterToMay:
   operation: DEPOSIT
-  date: 2020-03-07 15:43:21
   summary: Ração do gato
   amount: 15
   account: May
+  created_at: 2020-03-07 15:43:21
 
 PotsToStark:
   operation: DEPOSIT
-  date: 2020-04-07 15:43:21
   summary: Troco das compras
   amount: 8.5
   account: Stark
+  created_at: 2020-04-07 15:43:21
 
 MayToPeter:
   operation: TED
-  date: 2020-04-07 15:43:21
   summary: Ovos e leite
   amount: 55
   account: May
+  created_at: 2020-04-07 15:43:21
