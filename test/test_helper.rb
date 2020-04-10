@@ -35,13 +35,19 @@ class ActiveSupport::TestCase
   				bank: bank)
   end
 
-  def new_fake_bank_transaction
+  def new_fake_bank_transaction(operation)
   	account = Account.first
   	
   	BankTransaction.new(
-  				operation: BankTransaction::TED,
+  				operation: operation,
   				amount: 30,
   				summary: "Compra de USD 1,00",
   				account: account)
+  end
+
+  def new_fake_deposit
+  	account = load_may_account
+
+  	Deposit.new_deposit(50, "Bebidas", account)
   end
 end

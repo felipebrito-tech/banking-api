@@ -5,7 +5,7 @@ class CreateBeneficiaries < ActiveRecord::Migration[5.2]
       t.string :document
       t.integer :account_number
       t.integer :account_digit
-      t.integer :bank_branch
+      t.string :bank_branch
       t.references :bank, foreign_key: true
 
       t.timestamps

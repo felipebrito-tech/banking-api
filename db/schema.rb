@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_04_07_184402) do
   create_table "accounts", force: :cascade do |t|
     t.integer "number"
     t.integer "digit"
-    t.integer "bank_branch"
+    t.string "bank_branch"
     t.decimal "balance"
     t.bigint "bank_id"
     t.datetime "created_at", null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_04_07_184402) do
     t.string "document"
     t.integer "account_number"
     t.integer "account_digit"
-    t.integer "bank_branch"
+    t.string "bank_branch"
     t.bigint "bank_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

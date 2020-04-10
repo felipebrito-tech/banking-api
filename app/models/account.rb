@@ -21,7 +21,7 @@ class Account < ApplicationRecord
   	if amount.is_a? Numeric and amount > 0
 	  	self.balance += amount
 
-	  	{success: save, message: ""}
+	  	{success: true, message: ""}
 	elsif amount.is_a? Numeric and amount <= 0
 		{success: false, message: "You can't deposit zero or negative values!"}
 	else
@@ -33,7 +33,7 @@ class Account < ApplicationRecord
   	if amount.is_a? Numeric and amount > 0 and amount <= self.balance
 	  	self.balance -= amount
 
-	  	{success: save, message: ""}
+	  	{success: true, message: ""}
 	elsif amount.is_a? Numeric and amount <= 0
 		{success: false, message: "You can't withdrawal zero or negative values!"}
 	elsif amount.is_a? Numeric and amount > self.balance

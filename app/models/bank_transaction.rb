@@ -5,5 +5,5 @@ class BankTransaction < ApplicationRecord
   validates :operation, presence: true
   validates :amount, presence: true
   
-  belongs_to :account
+  belongs_to :account, autosave: true
 end

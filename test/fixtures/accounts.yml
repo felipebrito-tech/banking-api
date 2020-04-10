@@ -3,13 +3,13 @@
 Stark:
   number: 25567
   digit: 1
-  bank_branch: 0001
+  bank_branch: "0001"
   balance: 200000000
   bank: Trampolin
 
 May:
   number: 23356
   digit: 7
-  bank_branch: 0051
+  bank_branch: "0051"
   balance: 50
   bank: Trampolin

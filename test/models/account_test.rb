@@ -84,7 +84,7 @@ class AccountTest < ActiveSupport::TestCase
 
     account.deposit(300)
 
-    assert_equal load_may_account().balance, 350
+    assert_equal account.balance, 350
   end
 
   test "call withdrawal with values greater than balance returns false and a message" do
@@ -118,6 +118,6 @@ class AccountTest < ActiveSupport::TestCase
 
     account.withdrawal(10)
 
-    assert_equal load_may_account().balance, 40
+    assert_equal account.balance, 40
   end
 end
