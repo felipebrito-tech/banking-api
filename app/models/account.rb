@@ -12,30 +12,19 @@ class Account < ApplicationRecord
   def deposit(amount)
   	self.balance += amount
 
-  	self.save
+  	save
   end
 
-  def Account.get_balance(account_id)
-  	begin
-  		Account.find(account_id).balance
-  	rescue ActiveRecord::RecordNotFound
-  		nil
-  	end
-  end
-
-  def Account.bank_transactions(account_id, start_date, end_date)
-
+  def list_bank_transactions(start_date, end_date)
   	if Account.is_valid(start_date) and Account.is_valid(end_date)
-	  	begin
-	  	  	account = Account.find(account_id)
-
-	  	  	account.bank_transactions.where("date >= ? and date <= ?", start_date, end_date)
-	  	rescue
-	  		nil
-	  	end
+  	  	bank_transactions.where("date >= ? and date <= ?", start_date, end_date)
 	else
 		[]
 	end
+  end
+
+  def Account.get(bank_branch, number, digit)
+  	Account.where(bank_branch: bank_branch, number: number, digit: digit).take
   end
 
   private

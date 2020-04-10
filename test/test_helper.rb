@@ -16,4 +16,10 @@ class ActiveSupport::TestCase
   				balance: 2300,
   				bank: bank)
   end
+
+  def load_may_account()
+    may_account = accounts(:May)
+
+    Account.get(may_account.bank_branch, may_account.number, may_account.digit)
+  end
 end
