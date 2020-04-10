@@ -22,4 +22,16 @@ class ActiveSupport::TestCase
 
     Account.get(may_account.bank_branch, may_account.number, may_account.digit)
   end
+
+  def create_fake_beneficiary
+  	bank = Bank.first
+  	
+  	Beneficiary.new(
+  				beneficiary_name: "Steve Rogers",
+  				document: "11122233344",
+  				account_number: 11223,
+  				account_digit: 5,
+  				bank_branch: 1102,
+  				bank: bank)
+  end
 end
