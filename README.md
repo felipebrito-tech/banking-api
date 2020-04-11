@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
 
-* System dependencies
-
-* Configuration
+	2.6.5p114 (2019-10-01 revision 67812)
 
 * Database creation
 
+	On a bash terminal, run: ./recreatedb.sh
+
 * Database initialization
+
+	[For tests] On terminal, run: rake db:fixtures:load
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+	On terminal, run: rails test
 
 * Deployment instructions
 
-* ...
+	After DB created, run on terminal: rails server.
