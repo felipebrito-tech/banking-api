@@ -62,16 +62,16 @@ class AccountTest < ActiveSupport::TestCase
     assert_equal bank_transactions.size, 1
   end
 
-  test "call deposit with negative values returns false and message" do
+  test "call deposit with negative amount returns false and message" do
     account = load_may_account()
 
     result = account.deposit(-300)
 
     assert_not result[:success]
-    assert_equal result[:message], "You can't deposit zero or negative values!"
+    assert_equal result[:message], "You can't deposit zero or negative amount!"
   end
 
-  test "call deposit with invalid values returns nil" do
+  test "call deposit with invalid amount returns nil" do
     account = load_may_account()
 
     assert_nil account.deposit(nil)
@@ -87,7 +87,7 @@ class AccountTest < ActiveSupport::TestCase
     assert_equal account.balance, 350
   end
 
-  test "call withdrawal with values greater than balance returns false and a message" do
+  test "call withdrawal with amount greater than balance returns false and a message" do
     account = load_may_account()
 
     result = account.withdrawal(100)
@@ -96,13 +96,13 @@ class AccountTest < ActiveSupport::TestCase
     assert_equal result[:message], "You have not enough balance to complete this withdrawal!"
   end
 
-  test "call withdrawal with negative values returns false and message" do
+  test "call withdrawal with negative amount returns false and message" do
     account = load_may_account()
 
     result = account.withdrawal(-100)
 
     assert_not result[:success]
-    assert_equal result[:message], "You can't withdrawal zero or negative values!"
+    assert_equal result[:message], "You can't withdrawal zero or negative amount!"
   end
 
   test "making a withdrawal with invalid values returns nil" do

@@ -23,7 +23,7 @@ class Account < ApplicationRecord
 
 	  	{success: true, message: ""}
 	elsif amount.is_a? Numeric and amount <= 0
-		{success: false, message: "You can't deposit zero or negative values!"}
+		{success: false, message: "You can't deposit zero or negative amount!"}
 	else
 		nil
 	end
@@ -35,7 +35,7 @@ class Account < ApplicationRecord
 
 	  	{success: true, message: ""}
 	elsif amount.is_a? Numeric and amount <= 0
-		{success: false, message: "You can't withdrawal zero or negative values!"}
+		{success: false, message: "You can't withdrawal zero or negative amount!"}
 	elsif amount.is_a? Numeric and amount > self.balance
 		{success: false, message: "You have not enough balance to complete this withdrawal!"}
 	else

@@ -16,11 +16,13 @@ class DepositTest < ActiveSupport::TestCase
   end
 
   test "new deposit with invalid value returns nil" do
+  	account = load_may_account
+
   	assert_nil Deposit.new_deposit(nil, nil, nil)
     assert_nil Deposit.new_deposit(100, nil, nil)
-    assert_nil Deposit.new_deposit(nil, nil, load_may_account)
-    assert_nil Deposit.new_deposit("", nil, load_may_account)
-    assert_nil Deposit.new_deposit([], nil, load_may_account)
+    assert_nil Deposit.new_deposit(nil, nil, account)
+    assert_nil Deposit.new_deposit("", nil, account)
+    assert_nil Deposit.new_deposit([], nil, account)
   end
 
   test "deposit data is valid" do
@@ -35,7 +37,7 @@ class DepositTest < ActiveSupport::TestCase
   	result = deposit.make
 
     assert_not result[:success]
-    assert_equal result[:message], "You can't deposit zero or negative values!"
+    assert_equal result[:message], "You can't deposit zero or negative amount!"
   end
 
   test "make a deposit works fine" do

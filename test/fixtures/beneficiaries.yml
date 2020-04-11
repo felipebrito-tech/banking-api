@@ -5,7 +5,7 @@ Pots:
   document: 12345678900
   account_number: 20001
   account_digit: 1
-  bank_branch: 0231
+  bank_branch: "0231"
   bank: NeagleBank
 
 Parker:
@@ -13,5 +13,5 @@ Parker:
   document: 98765432100
   account_number: 3211
   account_digit: 9
-  bank_branch: 2341
+  bank_branch: "2341"
   bank: NeagleBank

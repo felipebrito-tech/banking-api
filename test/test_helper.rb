@@ -12,7 +12,7 @@ class ActiveSupport::TestCase
   	Account.new(
   				number: 21233,
   				digit: 3,
-  				bank_branch: 3344,
+  				bank_branch: "3344",
   				balance: 2300,
   				bank: bank)
   end
@@ -31,7 +31,7 @@ class ActiveSupport::TestCase
   				document: "11122233344",
   				account_number: 11223,
   				account_digit: 5,
-  				bank_branch: 1102,
+  				bank_branch: "1102",
   				bank: bank)
   end
 
@@ -49,5 +49,12 @@ class ActiveSupport::TestCase
   	account = load_may_account
 
   	Deposit.new_deposit(50, "Bebidas", account)
+  end
+
+  def new_fake_transfer
+  	account = load_may_account
+  	beneficiary = new_fake_beneficiary
+
+  	Transfer.new_transfer(50, "Tinta pro novo escudo", account, beneficiary)
   end
 end

@@ -1,7 +1,7 @@
 class Deposit < ApplicationRecord
   validate :validates_operation
 
-  belongs_to :bank_transaction, autosave: true
+  belongs_to :bank_transaction
 
   def make
   	result = account.deposit(amount)
