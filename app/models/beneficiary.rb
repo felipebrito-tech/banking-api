@@ -5,5 +5,5 @@ class Beneficiary < ApplicationRecord
   validates :account_digit, presence: true
   validates :bank_branch, presence: true
 
-  belongs_to :bank
+  belongs_to :bank, autosave: true
 end

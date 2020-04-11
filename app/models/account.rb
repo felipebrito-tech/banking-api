@@ -11,7 +11,7 @@ class Account < ApplicationRecord
 
   def list_bank_transactions(start_date, end_date)
   	if Account.is_valid(start_date) and Account.is_valid(end_date)
-  	  	bank_transactions.where("created_at >= ? and created_at <= ?", start_date, end_date)
+  	  	bank_transactions.where("created_at >= ? and created_at <= ?", start_date, end_date).order(created_at: :desc)
 	else
 		[]
 	end

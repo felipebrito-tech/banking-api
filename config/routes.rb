@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+    	match 'accounts/balance', :to => 'accounts#balance', :via => 'post'
+
+    	match 'accounts/statement', :to => 'accounts#statement', :via => 'post'
+    	
+    	match 'accounts/deposit', :to => 'accounts#deposit', :via => 'put'
+    	
+    	match 'accounts/transfer', :to => 'accounts#transfer', :via => 'post'
+    end
+  end
 end
